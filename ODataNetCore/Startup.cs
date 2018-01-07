@@ -30,9 +30,10 @@ namespace ODataNetCore
             var builder = new ODataConventionModelBuilder(app.ApplicationServices);
             builder.EntitySet<Product>(nameof(Product));
 
-            app.UseMvc(route=>
+            app.UseMvc(route =>
             {
                 route.MapODataServiceRoute("Rotue for Odata Services", "odata", builder.GetEdmModel());
+                route.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
