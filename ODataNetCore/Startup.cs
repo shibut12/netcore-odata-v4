@@ -33,6 +33,7 @@ namespace ODataNetCore
             app.UseMvc(route =>
             {
                 route.MapODataServiceRoute("Rotue for Odata Services", "odata", builder.GetEdmModel());
+                route.EnableDependencyInjection();
                 route.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
